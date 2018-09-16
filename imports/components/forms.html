@@ -27,7 +27,7 @@
                 <td>{{eit.firstname}}</td>
                 <td>{{eit.surname}}</td>
                 <td>{{eit.gender}}</td>
-                <td>{{eit.dob | date: 'short'}}</td>
+                <td ng-disabled="$ctrl.currentUser">{{eit.dob | date: 'short'}}</td>
                 <td> <button ng-click="$ctrl.deleteEit(eit)">&times;</button></td>
             </tr>
         </table>
