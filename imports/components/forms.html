@@ -1,0 +1,40 @@
+<div class="form-style-6">
+    <h1><login-buttons></login-buttons></h1>
+    <p ng-hide="$ctrl.currentUser" align="center">Sign in to access</p>
+</div>
+<div class="form-style-6" ng-hide="list === 1">
+    <div ng-show="$ctrl.currentUser">
+        <h1> EIT Info System</h1>
+        <input type="text" name="field1" placeholder="Your Firstname" ng-model="$ctrl.firstname" />
+        <input type="text" name="field1" placeholder="Your Surname" ng-model="$ctrl.surname" />
+        <input type="text" name="field2" placeholder="Your Gender" ng-model="$ctrl.gender" />
+        <input type="date" name="field1" ng-model="$ctrl.dob">
+        <input type="submit" ng-click="$ctrl.save()" value="Save EIT">
+    </div>
+</div>
+    <div ng-show="list === 1" class="form-style-6">
+        <h1>EIT List</h1>
+    
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Gender</th>
+                <th>Date of Birth</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="eit in $ctrl.eits">
+                <td>{{eit.firstname}}</td>
+                <td>{{eit.surname}}</td>
+                <td>{{eit.gender}}</td>
+                <td>{{eit.dob | date: 'short'}}</td>
+                <td> <button ng-click="$ctrl.deleteEit(eit)">&times;</button></td>
+            </tr>
+        </table>
+    </div>  
+    
+<div class="form-style-6" ng-show="$ctrl.currentUser">
+    <input type="submit" value="List" ng-click="list = 1">
+    <br>
+    <input type="submit" value="Add Eit" ng-click="list = 2">
+</div>
